@@ -15,6 +15,18 @@ const Navbar = () => {
             <>
 
                 <li><Link to="/dashboard"><button className='btn btn-outline btn-primary'>Dashboard</button></Link></li>
+                <li><div className="form-control">
+                    <label className="label cursor-pointer">
+                        <span className="label-text">Buyer</span>
+                        <input type="radio" name="radio-2" className="radio radio-primary" checked />
+                    </label>
+                </div>
+                    <div className="form-control">
+                        <label className="label cursor-pointer">
+                            <span className="label-text">Seller</span>
+                            <input type="radio" name="radio-2" className="radio radio-primary" checked />
+                        </label>
+                    </div></li>
                 <li><Link><button className='btn btn-outline btn-primary' onClick={handleLogOut}>Sign out</button></Link></li>
             </>
             : <>
