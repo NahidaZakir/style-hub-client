@@ -1,6 +1,10 @@
-import React from 'react';
-const ProductCard = ({ productInfo }) => {
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../context/AuthProvider';
+
+const ProductCard = ({ productInfo, setProductName, setResalePrice }) => {
     const { picture, name, location, resalePrice, originalPrice, yearsUsed, postedTime, sellerName, verified, status, mobileNumber } = productInfo;
+
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure><img src={picture} alt="Album" /></figure>
@@ -29,16 +33,18 @@ const ProductCard = ({ productInfo }) => {
                     <p className='text-xl my-3'>Resale Price: ${resalePrice}</p>
                     <p className='text-xl my-3' >Original Price: ${originalPrice}</p>
                     <p className='text-xl my-3'>Years Used: {yearsUsed}</p>
+                    <div className="card-actions justify-center">
+                        <label
+                            htmlFor="booking-modal"
+                            className="btn btn-primary text-white"
+                            onClick={() => {
+                                setProductName(name)
+                                setResalePrice(resalePrice)
+                            }
+                            }
+                        >Book Now</label>
+                    </div>
 
-
-
-
-                    {
-                        verified === "true" &&
-                        <div className="card-actions justify-end mt-12">
-                            <button className="btn btn-primary">Book Now</button>
-                        </div>
-                    }
                 </div>
 
             </div>
