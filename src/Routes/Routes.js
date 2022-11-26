@@ -1,5 +1,6 @@
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
+import CreateSellerAccount from "../Pages/CreateSellerAccount/CreateSellerAccount";
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/createaccount',
+                element: <CreateSellerAccount></CreateSellerAccount>
             }
 
         ]

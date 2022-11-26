@@ -10,28 +10,30 @@ const Navbar = () => {
             .catch(err => console.log(err));
     }
     const menuItems = <React.Fragment>
-        <li><Link to="/"><button className="btn btn-outline btn-primary">Home</button></Link></li>
+        <li><Link to="/"><button className="btn btn-outline btn-primary font-bold">Home</button></Link></li>
         {user?.uid ?
             <>
 
-                <li><Link to="/dashboard"><button className='btn btn-outline btn-primary'>Dashboard</button></Link></li>
+                <li><Link to="/dashboard"><button className='btn btn-outline btn-primary font-bold'>Dashboard</button></Link></li>
+                <li><Link><button className='btn btn-outline btn-primary font-bold' onClick={handleLogOut}>Sign out</button></Link></li>
                 <li><div className="form-control">
                     <label className="label cursor-pointer">
-                        <span className="label-text">Buyer</span>
+                        <span className="label-text mr-3 font-bold text-lg">Seller</span>
                         <input type="radio" name="radio-2" className="radio radio-primary" checked />
                     </label>
                 </div>
                     <div className="form-control">
                         <label className="label cursor-pointer">
-                            <span className="label-text">Seller</span>
+                            <span className="label-text mr-3 font-bold text-lg">Buyer</span>
                             <input type="radio" name="radio-2" className="radio radio-primary" checked />
                         </label>
                     </div></li>
-                <li><Link><button className='btn btn-outline btn-primary' onClick={handleLogOut}>Sign out</button></Link></li>
             </>
             : <>
-                <li><Link to="/login"><button className='btn btn-outline btn-primary'>Login</button></Link></li>
-                <li><Link to="/signup"><button className='btn btn-outline btn-primary'>Sign up</button></Link></li>
+                <li><Link to="/login"><button className='btn btn-outline btn-primary font-bold'>Login</button></Link></li>
+                <li><Link to="/signup"><button className='btn btn-outline btn-primary font-bold'>Sign up</button></Link></li>
+                <li><Link to="/createaccount"><button className='btn btn-outline btn-primary font-bold'>Create Seller Account</button></Link></li>
+
             </>}
 
 
