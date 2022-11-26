@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
 
 const ProductCard = ({ productInfo, setProductName, setResalePrice, setPicture }) => {
-    const { picture, name, location, resalePrice, originalPrice, yearsUsed, postedTime, sellerName, verified, status, mobileNumber } = productInfo;
+    const { picture, name, location, resalePrice, originalPrice, yearsUsed, postedTime, sellerName, verified } = productInfo;
 
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">

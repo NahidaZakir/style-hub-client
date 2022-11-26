@@ -10,8 +10,10 @@ const Navbar = () => {
             .catch(err => console.log(err));
     }
     const menuItems = <React.Fragment>
+        <li><Link to="/"><button className="btn btn-outline btn-primary">Home</button></Link></li>
         {user?.uid ?
             <>
+
                 <li><Link to="/dashboard"><button className='btn btn-outline btn-primary'>Dashboard</button></Link></li>
                 <li><Link><button className='btn btn-outline btn-primary' onClick={handleLogOut}>Sign out</button></Link></li>
             </>

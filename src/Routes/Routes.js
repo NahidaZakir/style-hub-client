@@ -1,11 +1,15 @@
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
+import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
+import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Products from "../Pages/Products/Products";
 import DisplayError from "../Pages/Shared/DisplayError/DisplayError";
 import SignUp from "../Pages/SignUp/SignUp";
+import AdminRoute from "./AdminRoute/AdminRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
@@ -47,6 +51,18 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: '/dashboard/addproduct',
+                element: <AddProduct></AddProduct>
+            },
+            {
+                path: '/dashboard/myproducts',
+                element: <MyProducts></MyProducts>
             }
         ]
     }
