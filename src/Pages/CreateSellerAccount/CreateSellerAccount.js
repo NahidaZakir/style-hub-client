@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import useToken from '../../hooks/useToken';
 
 const CreateSellerAccount = () => {
+    const seller = "seller";
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
@@ -39,14 +40,15 @@ const CreateSellerAccount = () => {
             });
     }
 
+
     const saveUser = (name, email) => {
-        const user = { name, email };
+        const sellerInfo = { name, email, accountType: seller };
         fetch('http://localhost:5000/sellers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(sellerInfo)
         })
             .then(res => res.json())
             .then(data => {
