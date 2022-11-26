@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
 
 
-const BookingModal = ({ productName, resalePrice }) => {
+const BookingModal = ({ productName, resalePrice, picture }) => {
     const { user } = useContext(AuthContext);
 
     const handleBooking = event => {
@@ -25,7 +25,8 @@ const BookingModal = ({ productName, resalePrice }) => {
             buyerName,
             productName,
             meetingLocation,
-            resalePrice
+            resalePrice,
+            picture
         }
         // TODO: send data to the server
         // and once data is saved then close the modal 

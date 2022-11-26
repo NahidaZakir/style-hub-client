@@ -12,7 +12,7 @@ const Navbar = () => {
     const menuItems = <React.Fragment>
         {user?.uid ?
             <>
-                <li><Link to="/myorders"><button className='btn btn-outline btn-primary'>My Orders</button></Link></li>
+                <li><Link to="/dashboard"><button className='btn btn-outline btn-primary'>Dashboard</button></Link></li>
                 <li><Link><button className='btn btn-outline btn-primary' onClick={handleLogOut}>Sign out</button></Link></li>
             </>
             : <>
