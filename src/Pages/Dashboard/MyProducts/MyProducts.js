@@ -7,6 +7,7 @@ import Loading from '../../Shared/Loading/Loading';
 
 const MyProducts = () => {
     const [deletingProduct, setDeletingProduct] = useState(null);
+    const [advertise, setAdvertise] = useState(null);
     const { user } = useContext(AuthContext);
     /*
         const { data: products = [], refetch } = useQuery({
@@ -22,6 +23,7 @@ const MyProducts = () => {
 
     const closeModal = () => {
         setDeletingProduct(null);
+        setAdvertise(null);
     }
 
 
@@ -59,6 +61,22 @@ const MyProducts = () => {
                 }
             })
     }
+    const handleAdvertise = product => {
+        fetch(`http://localhost:5000/products/${product._id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+
+                    toast.success(`Product:  ${product.name} Advertised successfully`);
+                    refetch();
+                }
+            })
+    }
 
     if (isLoading) {
         return <Loading></Loading>
@@ -91,7 +109,10 @@ const MyProducts = () => {
                                 <td>
                                     <label onClick={() => setDeletingProduct(product)} htmlFor="confirmation-modal" className="btn btn-sm btn-primary">Delete</label>
                                 </td>
-                                <td><button className='btn btn-sm btn-primary'>Advertise</button></td>
+                                <td>
+                                    <label onClick={() => setAdvertise(product)} htmlFor="confirmation-modal" className="btn btn-sm btn-primary">Advertise</label>
+                                </td>
+
                             </tr>)
                         }
 
@@ -104,6 +125,17 @@ const MyProducts = () => {
                         successAction={handleDeleteProduct}
                         successButtonName="Delete"
                         modalData={deletingProduct}
+                        closeModal={closeModal}
+                    >
+                    </ConfirmationModal>
+                }
+                {
+                    advertise && <ConfirmationModal
+                        title={`Are you sure you want to advertise?`}
+                        message={`If you advertise ${advertise.name}. It cannot be undone.`}
+                        successAction={handleAdvertise}
+                        successButtonName="Advertise"
+                        modalData={advertise}
                         closeModal={closeModal}
                     >
                     </ConfirmationModal>

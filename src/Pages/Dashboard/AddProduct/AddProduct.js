@@ -24,6 +24,7 @@ const AddProduct = () => {
 
     const handleAddProduct = data => {
         const available = "available";
+        const advertise = "false";
         var catId = 0;
         var current = new Date();
         const date = current.toLocaleDateString();
@@ -67,7 +68,7 @@ const AddProduct = () => {
                         mobileNumber: data.mobileNumber,
                         status: available,
                         postedTime: date,
-
+                        advertise: advertise
 
                     }
 
