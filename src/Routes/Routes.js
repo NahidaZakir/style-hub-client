@@ -2,7 +2,9 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import CreateSellerAccount from "../Pages/CreateSellerAccount/CreateSellerAccount";
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
-import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
+import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
+
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Home from "../Pages/Home/Home";
@@ -58,16 +60,20 @@ const router = createBrowserRouter([
                 element: <MyOrders></MyOrders>
             },
             {
-                path: '/dashboard/allusers',
-                element: <AllUsers></AllUsers>
-            },
-            {
                 path: '/dashboard/addproduct',
                 element: <AddProduct></AddProduct>
             },
             {
                 path: '/dashboard/myproducts',
                 element: <MyProducts></MyProducts>
+            },
+            {
+                path: '/dashboard/sellers',
+                element: <AllSellers></AllSellers>
+            },
+            {
+                path: '/dashboard/buyers',
+                element: <AllBuyers></AllBuyers>
             }
         ]
     }

@@ -38,9 +38,9 @@ const SignUp = () => {
                 setSignUPError(error.message)
             });
     }
-
+    const buyer = "buyer";
     const saveUser = (name, email) => {
-        const user = { name, email };
+        const user = { name, email, accountType: buyer };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
