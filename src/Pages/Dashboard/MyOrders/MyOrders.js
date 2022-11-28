@@ -23,12 +23,21 @@ const MyOrders = () => {
         }
     })
 
+
     return (
-        <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
-            {
-                bookings.map(order => <OrderCard key={order._id} order={order}></OrderCard>)
-            }
+        <div>
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
+                {
+                    bookings.length > 0 ? bookings.map(order => <OrderCard key={order._id} order={order}></OrderCard>) : <p className="font-bold text-center text-2xl"
+                    >No orders added</p>
+
+                }
+
+            </div>
+
+
         </div>
+
     );
 };
 

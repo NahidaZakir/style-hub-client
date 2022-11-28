@@ -1,5 +1,6 @@
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
+import Blogs from "../Pages/Blogs/Blogs";
 import CreateSellerAccount from "../Pages/CreateSellerAccount/CreateSellerAccount";
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path: '/createaccount',
                 element: <CreateSellerAccount></CreateSellerAccount>
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
             }
 
         ]
@@ -56,7 +61,7 @@ const router = createBrowserRouter([
         errorElement: <DisplayError></DisplayError>,
         children: [
             {
-                path: '/dashboard',
+                path: '/dashboard/myorders',
                 element: <MyOrders></MyOrders>
             },
             {
