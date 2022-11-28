@@ -76,7 +76,11 @@ const AllBuyers = () => {
                                 <td>{user.email}</td>
                                 <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
                                 <td>
-                                    <label onClick={() => setDeletingBuyer(user)} htmlFor="confirmation-modal" className="btn btn-sm btn-primary">Delete</label>
+                                    {
+                                        user?.role !== 'admin' &&
+                                        <label onClick={() => setDeletingBuyer(user)} htmlFor="confirmation-modal" className="btn btn-sm btn-primary">Delete</label>
+                                    }
+
                                 </td>
                             </tr>)
                         }

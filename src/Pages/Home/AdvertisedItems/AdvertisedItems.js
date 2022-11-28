@@ -25,7 +25,12 @@ const AdvertisedItems = () => {
         <div>
 
             {
-                products.length > 0 && products.map(prod => <AdvertisedCard key={prod._id} productInfo={prod}></AdvertisedCard>)
+                products.length > 0 && <>
+                    <div className='text-center font-bold text-2xl text-primary'>Advertised Items</div>
+                    {
+                        products.map(prod => <AdvertisedCard key={prod._id} productInfo={prod}></AdvertisedCard>)
+                    }
+                </>
             }
         </div>
     );
