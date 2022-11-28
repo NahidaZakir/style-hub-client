@@ -1,3 +1,30 @@
+# features and Functionalities
+# platform for both buyers, seller, and admin to work on same website
+# for different user different layout is shown
+# buyer can book products in my orders
+# sellers can add products and review their products 
+# admin can delete seller/verify seller and delete buyer too
+# if seller wants they can advertise their items
+
+# live web link : https://style-hub-c731d.web.app
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
