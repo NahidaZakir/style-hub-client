@@ -25,7 +25,7 @@ const AdvertisedItems = () => {
         <div>
 
             {
-                products.map(prod => <AdvertisedCard key={prod._id} productInfo={prod}></AdvertisedCard>)
+                products.length > 0 && products.map(prod => <AdvertisedCard key={prod._id} productInfo={prod}></AdvertisedCard>)
             }
         </div>
     );

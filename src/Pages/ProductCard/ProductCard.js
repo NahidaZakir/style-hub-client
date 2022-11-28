@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
 
-const ProductCard = ({ productInfo, setProductName, setResalePrice, setPicture }) => {
+const ProductCard = ({ productInfo, setProductName, setResalePrice, setPicture, setProduct }) => {
     const { picture, name, location, resalePrice, originalPrice, yearsUsed, postedTime, sellerName, verified } = productInfo;
 
     return (
@@ -41,8 +41,8 @@ const ProductCard = ({ productInfo, setProductName, setResalePrice, setPicture }
                                 setProductName(name)
                                 setResalePrice(resalePrice)
                                 setPicture(picture)
-                            }
-                            }
+                                setProduct(name)
+                            }}
                         >Book Now</label>
                     </div>
 

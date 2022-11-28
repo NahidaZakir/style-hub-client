@@ -5,7 +5,7 @@ import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal'
 import Loading from '../../Shared/Loading/Loading';
 const AllSellers = () => {
     const [deletingSeller, setDeletingSeller] = useState(null);
-
+    const [verify, setVerify] = useState(null);
     const closeModal = () => {
         setDeletingSeller(null);
     }
@@ -50,6 +50,22 @@ const AllSellers = () => {
                 }
             })
     }
+    const handleVerify = seller => {
+        fetch(`http://localhost:5000/sellers/${seller._id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    toast.success(`Seller:  ${seller.name} verified successfully`);
+
+                }
+            })
+    }
 
     if (isLoading) {
         return <Loading></Loading>
@@ -67,6 +83,7 @@ const AllSellers = () => {
                             <th>Email</th>
                             <th>Admin</th>
                             <th>Delete</th>
+                            <th>Verify</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,9 +93,20 @@ const AllSellers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
+
                                 <td>
                                     <label onClick={() => setDeletingSeller(user)} htmlFor="confirmation-modal" className="btn btn-sm btn-primary">Delete</label>
                                 </td>
+                                <td>
+                                    {
+                                        user.verified === "true" ? <label className="btn btn-sm btn-primary">Verified</label> : <label onClick={() => handleVerify(user)} htmlFor="confirmation-modal" className="btn btn-sm btn-primary">Verify</label>
+
+                                    }
+
+                                </td>
+
+
+
                             </tr>)
                         }
 
@@ -98,6 +126,8 @@ const AllSellers = () => {
                 >
                 </ConfirmationModal>
             }
+
+
         </div>
     );
 };

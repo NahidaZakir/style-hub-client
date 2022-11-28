@@ -9,7 +9,6 @@ const ProductCategoryCard = ({ category }) => {
                 <div className='flex justify-between'>
                     <h2 className="card-title text-center">{categoryName}</h2>
                     <Link to={`/category/${categoryId}`}><button className="btn btn-primary">See All</button></Link>
-
                 </div>
             </div>
         </div>
