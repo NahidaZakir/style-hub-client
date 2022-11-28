@@ -5,11 +5,13 @@ import CreateSellerAccount from "../Pages/CreateSellerAccount/CreateSellerAccoun
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
+import ReportedItems from "../Pages/Dashboard/Dashboard/ReportedItems/ReportedItems";
 
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Products from "../Pages/Products/Products";
 import DisplayError from "../Pages/Shared/DisplayError/DisplayError";
 import SignUp from "../Pages/SignUp/SignUp";
@@ -79,8 +81,17 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/buyers',
                 element: <AllBuyers></AllBuyers>
+            },
+            {
+                path: '/dashboard/reporteditems',
+                element: <ReportedItems></ReportedItems>
             }
+
         ]
+    },
+    {
+        path: "*",
+        element: <PageNotFound></PageNotFound>
     }
 ])
 export default router;

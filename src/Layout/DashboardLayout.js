@@ -32,7 +32,7 @@ const DashboardLayout = () => {
                                 <li><Link to="/dashboard/addproduct">Add a product</Link></li></>
                         }
                         {
-                            account === "buyer" && <><li><Link to="/dashboard/myorders">My Orders</Link></li><li></li></>
+                            (account === "buyer" && !isAdmin) && <><li><Link to="/dashboard/myorders">My Orders</Link></li><li></li></>
 
                         }
 
@@ -47,6 +47,7 @@ const DashboardLayout = () => {
                             isAdmin && <>
                                 <li><Link to="/dashboard/sellers">All Sellers</Link></li>
                                 <li><Link to="/dashboard/buyers">Add Buyers</Link></li>
+                                <li><Link to="/dashboard/reporteditems">Reported Items</Link></li>
 
                             </>
                         }
