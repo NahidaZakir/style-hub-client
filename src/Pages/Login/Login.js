@@ -27,7 +27,6 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 setLoginUserEmail(data.email);
-                navigate('/');
 
             })
             .catch(error => {

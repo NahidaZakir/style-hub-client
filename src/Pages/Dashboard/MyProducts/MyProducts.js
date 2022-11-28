@@ -85,62 +85,65 @@ const MyProducts = () => {
     return (
         <div>
             <h2 className="text-3xl">My products</h2>
-            <div className="overflow-x-auto">
-                <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Status</th>
-                            <th>Price</th>
-                            <th>Delete</th>
-                            <th>Advertise</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            products.map((product, i) => <tr key={product._id}>
-                                <th>{i + 1}</th>
-                                <td>{product.name}</td>
-                                <td>{product.status}</td>
-                                <td>{product.resalePrice}</td>
+            {
+                products.length > 0 && <div className="overflow-x-auto">
+                    <table className="table w-full">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Price</th>
+                                <th>Delete</th>
+                                <th>Advertise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                products.map((product, i) => <tr key={product._id}>
+                                    <th>{i + 1}</th>
+                                    <td>{product.name}</td>
+                                    <td>{product.status}</td>
+                                    <td>{product.resalePrice}</td>
 
 
-                                <td>
-                                    <label onClick={() => setDeletingProduct(product)} htmlFor="confirmation-modal" className="btn btn-sm btn-primary">Delete</label>
-                                </td>
-                                <td>
-                                    <label onClick={() => setAdvertise(product)} htmlFor="confirmation-modal" className="btn btn-sm btn-primary">Advertise</label>
-                                </td>
+                                    <td>
+                                        <label onClick={() => setDeletingProduct(product)} htmlFor="confirmation-modal" className="btn btn-sm btn-primary">Delete</label>
+                                    </td>
+                                    <td>
+                                        <label onClick={() => setAdvertise(product)} htmlFor="confirmation-modal" className="btn btn-sm btn-primary">Advertise</label>
+                                    </td>
 
-                            </tr>)
-                        }
+                                </tr>)
+                            }
 
-                    </tbody>
-                </table>
-                {
-                    deletingProduct && <ConfirmationModal
-                        title={`Are you sure you want to delete?`}
-                        message={`If you delete ${deletingProduct.name}. It cannot be undone.`}
-                        successAction={handleDeleteProduct}
-                        successButtonName="Delete"
-                        modalData={deletingProduct}
-                        closeModal={closeModal}
-                    >
-                    </ConfirmationModal>
-                }
-                {
-                    advertise && <ConfirmationModal
-                        title={`Are you sure you want to advertise?`}
-                        message={`If you advertise ${advertise.name}. It cannot be undone.`}
-                        successAction={handleAdvertise}
-                        successButtonName="Advertise"
-                        modalData={advertise}
-                        closeModal={closeModal}
-                    >
-                    </ConfirmationModal>
-                }
-            </div>
+                        </tbody>
+                    </table>
+                    {
+                        deletingProduct && <ConfirmationModal
+                            title={`Are you sure you want to delete?`}
+                            message={`If you delete ${deletingProduct.name}. It cannot be undone.`}
+                            successAction={handleDeleteProduct}
+                            successButtonName="Delete"
+                            modalData={deletingProduct}
+                            closeModal={closeModal}
+                        >
+                        </ConfirmationModal>
+                    }
+                    {
+                        advertise && <ConfirmationModal
+                            title={`Are you sure you want to advertise?`}
+                            message={`If you advertise ${advertise.name}. It cannot be undone.`}
+                            successAction={handleAdvertise}
+                            successButtonName="Advertise"
+                            modalData={advertise}
+                            closeModal={closeModal}
+                        >
+                        </ConfirmationModal>
+                    }
+                </div>
+            }
+
         </div>
     );
 };
