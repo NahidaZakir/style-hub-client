@@ -13,7 +13,7 @@ const MyProducts = () => {
         const { data: products = [], refetch } = useQuery({
             queryKey: ['products'],
             queryFn: async () => {
-                const res = await fetch(`http://localhost:5000/products/${user?.email}`);
+                const res = await fetch(`https://style-hub-server.vercel.app/products/${user?.email}`);
                 const data = await res.json();
                 return data;
             }
@@ -31,7 +31,7 @@ const MyProducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const res = await fetch(`http://localhost:5000/products/${user?.email}`, {
+                const res = await fetch(`https://style-hub-server.vercel.app/products/${user?.email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -47,7 +47,7 @@ const MyProducts = () => {
 
 
     const handleDeleteProduct = product => {
-        fetch(`http://localhost:5000/products/${product._id}`, {
+        fetch(`https://style-hub-server.vercel.app/products/${product._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -62,7 +62,7 @@ const MyProducts = () => {
             })
     }
     const handleAdvertise = product => {
-        fetch(`http://localhost:5000/products/${product._id}`, {
+        fetch(`https://style-hub-server.vercel.app/products/${product._id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

@@ -13,13 +13,13 @@ const AllBuyers = () => {
     const { data: users, isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/buyers?accountType=${accountType}`);
+            const res = await fetch(`https://style-hub-server.vercel.app/buyers?accountType=${accountType}`);
             const data = await res.json();
             return data;
         }
     });
     const handleMakeAdmin = id => {
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://style-hub-server.vercel.app/users/admin/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -34,7 +34,7 @@ const AllBuyers = () => {
             })
     }
     const handleDeleteBuyer = user => {
-        fetch(`http://localhost:5000/users/${user._id}`, {
+        fetch(`https://style-hub-server.vercel.app/users/${user._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

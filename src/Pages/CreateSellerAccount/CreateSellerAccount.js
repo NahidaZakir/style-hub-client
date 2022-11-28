@@ -44,7 +44,7 @@ const CreateSellerAccount = () => {
 
     const saveUser = (name, email) => {
         const sellerInfo = { name, email, accountType: seller, verified: status };
-        fetch('http://localhost:5000/sellers', {
+        fetch('https://style-hub-server.vercel.app/sellers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

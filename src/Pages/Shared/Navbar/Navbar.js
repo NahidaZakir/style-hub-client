@@ -12,7 +12,7 @@ const Navbar = () => {
     const [account, setAccountType] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`)
+        fetch(`https://style-hub-server.vercel.app/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setAccountType(data.accountType));
     }, [])

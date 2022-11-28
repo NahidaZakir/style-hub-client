@@ -16,7 +16,7 @@ const AddProduct = () => {
     const { data: categories, isLoading } = useQuery({
         queryKey: ['name'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/categoryName');
+            const res = await fetch('https://style-hub-server.vercel.app/categoryName');
             const data = await res.json();
             return data;
         }
@@ -73,7 +73,7 @@ const AddProduct = () => {
                     }
 
                     // save doctor information to the database
-                    fetch('http://localhost:5000/products', {
+                    fetch('https://style-hub-server.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
